@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blast from the Past!</title>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""/>
+
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            h1 {
+                font-size: 28px;
+                font-weight: bold;
+                text-align: center;
+                letter-spacing: 2px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Blast from the Past!</h1>
+
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+            // Create the map
+            var map = L.map('map', {
+                center: [38.16, -96.96],
+                zoom: 4
+            });
+
+
+            // Create custom home icon
+            var homeIcon = L.icon({
+                iconUrl: 'house-icon.png',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40]
+            });
+
+
+            // Billings, Missouri
+            var billings = L.marker([37.0677033, -93.5512034], {
+                icon: homeIcon,
+                alt: 'Home icon marking Billings, Missouri'
+            }).addTo(map);
+
+            billings.bindPopup(
+                '<img src="billings.jpg" alt="Billings, Missouri" width="200">' +
+                '<p><strong>Billings, Missouri</strong><br>' +
+                'I lived here from 1st-4th grade and again for 7th and 8th grade, and I consider it my hometown. This Casey\'s was one of the places we would ride our bikes to and spend our allowances on candy and beef jerky.</p>'
+            );
+
+
+            // Austintown, Ohio
+            var austintown = L.marker([41.0921929, -80.7401431], {
+                icon: homeIcon,
+                alt: 'Home icon marking Frank Ohl Middle School in Austintown, Ohio'
+            }).addTo(map);
+
+            austintown.bindPopup(
+                '<img src="austintown.jpg" alt="Frank Ohl Middle School in Austintown, Ohio" width="200">' +
+                '<p><strong>Austintown, Ohio</strong><br>' +
+                'I attended Frank Ohl Middle School for 5th and 6th grade while I lived in Austintown, Ohio.</p>'
+            );
+
+
+            // Empire, Michigan
+            var empire = L.marker([44.7860643, -86.0047191], {
+                icon: homeIcon,
+                alt: 'Home icon marking Empire Township Campground in Empire, Michigan'
+            }).addTo(map);
+
+            empire.bindPopup(
+                '<img src="empire.jpg" alt="Campsite at Empire Township Campground" width="200">' +
+                '<p><strong>Empire, Michigan</strong><br>' +
+                'I lived at Empire Township Campground for five months in 2012 while my mother-in-law was managing it. We spent the summer working at a local motel, exploring the beautiful area, and playing Mortal Kombat on our PlayStation in the tent.</p>'
+            );
+
+
+            // Tucson, Arizona
+            var tucson = L.marker([32.1981334, -110.8202742], {
+                icon: homeIcon,
+                alt: 'Home icon marking Tucson, Arizona'
+            }).addTo(map);
+
+            tucson.bindPopup(
+                '<img src="tucson.jpg" alt="Tucson, Arizona" width="200">' +
+                '<p><strong>Tucson, Arizona</strong><br>' +
+                'I lived in Tucson during my kindergarten year. This marker shows the trailer park where we resided.</p>'
+            );
+
+
+            // Add basemap
+            L.tileLayer(
+                'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+                {
+                    attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a>',
+                    maxZoom: 4,
+                    minZoom: 4
+                }
+            ).addTo(map);
+
+        </script>
+
+    </body>
+</html>
